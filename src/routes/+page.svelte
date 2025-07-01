@@ -1,2 +1,11 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://svelte.dev/docs/kit">svelte.dev/docs/kit</a> to read the documentation</p>
+<div class="stack">
+	<text>んー、何を書こうかなぁ</text>
+	<a href="bow">bow</a>
+</div>
+
+<style>
+	.stack {
+		display: flex;
+		flex-direction: column;
+	}
+</style>
