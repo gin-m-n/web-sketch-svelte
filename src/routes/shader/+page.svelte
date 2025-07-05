@@ -1,13 +1,13 @@
 <script>
-	import { Stage, MeshManager } from './utils';
+	import { Stage, BgMeshManager } from '../../three/utils';
 	$effect(() => {
-		const stage = new Stage();
-		const meshManager = new MeshManager();
+		const stage = new Stage('webgl-canvas');
+		const meshManager = new BgMeshManager();
 		const mesh = meshManager.gen();
 		window.addEventListener('mousemove', (event) => {
 			const x = event.clientX;
 			const y = event.clientY;
-			meshManager.updateMouse(x, y);
+			meshManager.onMouseMove(x, y);
 		});
 		stage.add(mesh);
 		stage.startRenderLoop();

@@ -1,3 +1,25 @@
-body {
+* {
 	margin: 0;
+	box-sizing: border-box;
+}
+
+/* Chrome, Safari */
+::-webkit-scrollbar {
+  /* display: none; */
+}
+
+/* Firefox */
+html {
+  /* scrollbar-width: none; */
+}
+
+/* IE, Edge */
+body {
+  -ms-overflow-style: none;
+}
+
+body {
+  font-family: "Zen Old Mincho", serif;
+  font-weight: 400;
+  font-style: normal;
 }
