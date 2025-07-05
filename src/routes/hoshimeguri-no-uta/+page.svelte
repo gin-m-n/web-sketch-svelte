@@ -8,7 +8,6 @@
 		const pageNumber = 4;
 		const dummyHeight = window.innerHeight + 1000;
 		const totalScrollableHeight = dummyHeight - window.innerHeight;
-		const pageHeight = totalScrollableHeight / pageNumber;
 		const stage = new Stage('bg-canvas');
 		stage.startRenderLoop();
 		const bgMeshManager = new BgMeshManager();
@@ -26,7 +25,7 @@
 
 		const scrollToCurrentPage = () => {
 			const scrollRatio = window.scrollY / totalScrollableHeight;
-			const page = Math.round(scrollRatio * pageNumber);
+			const page = Math.floor(scrollRatio * pageNumber);
 			if (page === currentPage || page > pageNumber - 1) return;
 
 			currentPage = page;
