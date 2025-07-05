@@ -6,8 +6,9 @@
 
 	$effect(() => {
 		const pageNumber = 4;
-		const dummyHeight = window.innerHeight * 3;
-		const pageHeight = dummyHeight / pageNumber;
+		const dummyHeight = window.innerHeight + 1000;
+		const totalScrollableHeight = dummyHeight - window.innerHeight;
+		const pageHeight = totalScrollableHeight / pageNumber;
 		const stage = new Stage('bg-canvas');
 		stage.startRenderLoop();
 		const bgMeshManager = new BgMeshManager();
@@ -24,9 +25,9 @@
 		if (!textContainerDom) throw new Error('not found #text-container');
 
 		const scrollToCurrentPage = () => {
-			const scrollRatio = window.scrollY / pageHeight;
-			const page = Math.round(scrollRatio);
-			if (page === currentPage) return;
+			const scrollRatio = window.scrollY / totalScrollableHeight;
+			const page = Math.round(scrollRatio * pageNumber);
+			if (page === currentPage || page > pageNumber - 1) return;
 
 			currentPage = page;
 			const scrollX = page * textContainerDom.clientWidth;
@@ -110,9 +111,9 @@
 					そらのめぐりの　めあて。
 				</p>
 			</div>
-			<div class="page">
+			<!-- <div class="page">
 				<p class="page-content">ここに、開発者の私の情報を乗っける</p>
-			</div>
+			</div> -->
 		</div>
 	</div>
 </div>
